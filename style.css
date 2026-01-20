@@ -19,8 +19,7 @@
 
 body {
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-  color: var(--text-color);
+  backgroundcolor: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
   line-height: 1.7;
   min-height: 100vh;
   padding: 0;
