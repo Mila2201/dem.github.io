@@ -1,12 +1,12 @@
-
 /* style.css */
 :root {
-  --bg: #ffffff;
-  --text: #2d3748;
-  --accent: #4299e1;
-  --light-gray: #f7fafc;
-  --border: #e2e8f0;
-  --shadow: rgba(0, 0, 0, 0.05);
+  --bg: #f9f7fe;
+  --text: #2d1b4e;
+  --accent-1: #8a2be2; /* фиолетовый */
+  --accent-2: #00c9ff; /* бирюзовый */
+  --accent-3: #ff6b6b; /* коралловый */
+  --card-bg: white;
+  --shadow: rgba(138, 43, 226, 0.15);
 }
 
 * {
@@ -16,86 +16,52 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #f0f9ff, #f5f0ff);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.7;
+  min-height: 100vh;
   padding: 0;
   margin: 0;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
 }
 
 header {
   text-align: center;
   margin-bottom: 3rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+header h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
   margin-bottom: 0.5rem;
-  color: var(--text);
 }
 
-h2 {
-  font-size: 1.8rem;
-  margin: 2rem 0 1rem;
-  font-weight: 600;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: #2b6cb0;
-  text-decoration: underline;
+header p {
+  font-size: 1.2rem;
+  color: #5a4a78;
 }
 
 .card {
-  background: var(--light-gray);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 6px var(--shadow);
-  transition: transform 0.2s;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid var(--accent-1);
 }
 
 .card:hover {
-  transform: translateY(-2px);
-}
-
-footer {
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  color: #718096;
-  font-size: 0.9rem;
-}
-
-/* Адаптивность */
-@media (max-width: 600px) {
-  .container {
-    padding: 1.5rem 1rem;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
-}
+  transform: translateY(-6px);
+ 
