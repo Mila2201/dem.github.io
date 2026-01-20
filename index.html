@@ -5,7 +5,152 @@
   <link type=“text/css” rel=“stylesheet” href=“style.css” />
 </head>
 
-</head>
+<style>
+    /* Встроенный стиль — яркий и современный */
+    :root {
+      --bg-gradient-start: #f8f4ff;
+      --bg-gradient-end: #e6f7ff;
+      --text-color: #2c1e4a;
+      --heading-color: #6a0dad;
+      --accent: #00c9ff;
+      --accent-hover: #00a8cc;
+      --card-bg: white;
+      --border-radius: 16px;
+      --shadow-light: rgba(106, 13, 173, 0.1);
+      --shadow-strong: rgba(106, 13, 173, 0.2);
+      --link-color: #8a2be2;
+      --footer-text: #7a6ba6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-color);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--heading-color), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+    }
+
+    header p.subtitle {
+      font-size: 1.25rem;
+      color: #5a4a78;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .post {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 6px 18px var(--shadow-light);
+      transition: all 0.35s ease;
+      border-left: 4px solid var(--accent);
+    }
+
+    .post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px var(--shadow-strong);
+    }
+
+    .post h2 {
+      font-size: 1.9rem;
+      color: var(--heading-color);
+      margin-bottom: 1rem;
+    }
+
+    .post p {
+      margin-bottom: 1.2rem;
+      color: #333;
+    }
+
+    .post a {
+      color: var(--link-color);
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+    }
+
+    .post a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .post a:hover {
+      color: var(--accent);
+    }
+
+    .post a:hover::after {
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      color: var(--footer-text);
+      font-size: 0.95rem;
+      border-top: 2px dashed #e0d6f0;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+      .post {
+        padding: 1.5rem;
+      }
+      .post h2 {
+        font-size: 1.6rem;
+      }
+      .container {
+        padding: 1.8rem 1rem;
+      }
+    }
+  </style>
 <body>
 <р>Создано: 14 января 2026</р>
 <р>Домен - mila2201 github io . </p>
