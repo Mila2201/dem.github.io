@@ -179,4 +179,156 @@
  Найден FAQ-вопрос: Как быстро доставляется заказ? (sim=0.706)
   Ответ бот-FAQ: Наш стандартгый срок доставки - 3-5 рабочих дней.
   </p>
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Линейная регрессия: Предсказание баллов</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .slide-section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .note {
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .formula {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+ <h2> 16 марта 2026 </h2>
+    <h1>📈 Линейная регрессия: Зависимость оценок от времени учёбы</h1>
+    <p>Проект по машинному обучению: предсказание экзаменационных баллов на основе часов подготовки.</p>
+
+    <!-- Слайд 2 -->
+    <div class="slide-section">
+        <h2>Шаг 1: Откройте Jupyter Notebook и введите код</h2>
+        <pre><code># библиотека для работы с таблицами
+import pandas as pd
+
+# загружаем таблицу в память из файла task_regression.csv
+dataset = pd.read_csv(r'Downloads/task_regression.csv', sep=';', decimal=',')</code></pre>
+        <div class="note">
+            <strong>Задание:</strong> Вспомните, какой инструкцией можно вывести данные на печать?  
+            → Используйте <code>print(dataset)</code> или просто напишите <code>dataset</code> в ячейке.
+        </div>
+    </div>
+
+    <!-- Слайд 3 -->
+    <div class="slide-section">
+        <h2>Шаг 2: Построение графика зависимости</h2>
+        <pre><code># отсортируем столбец "Часы" по возрастанию
+dataset = dataset.sort_values(by='Часы')
+
+# построение графика
+import matplotlib.pyplot as plt
+dataset.plot(x='Часы', y='Полученные. Баллы', style = 'o')
+plt.title('Зависимость')
+plt.xlabel('Часы')
+plt.ylabel('Баллы')
+plt.show()</code></pre>
+        <div class="note">
+            <strong>Вывод:</strong> По графику видно, что существует положительная линейная зависимость между количеством изученных часов и процентом набранных баллов.
+        </div>
+    </div>
+
+    <!-- Слайд 4 -->
+    <div class="slide-section">
+        <h2>Шаг 3: Подготовка данных — разделение на атрибуты и метки</h2>
+        <p><strong>Атрибуты (X)</strong> — независимые переменные (часы).  
+        <strong>Метки (Y)</strong> — зависимые переменные (баллы), которые нужно предсказать.</p>
+        <pre><code>X = dataset[['Часы']]
+print(X)
+
+Y = dataset['Полученные. Баллы']
+print(Y)</code></pre>
+        <div class="note">
+            Обратите внимание: X берётся в двойных скобках <code>[['Часы']]</code>, чтобы остаться DataFrame, а Y — в одинарных <code>['Полученные. Баллы']</code>, так как это Series.
+        </div>
+    </div>
+
+    <!-- Слайд 5 -->
+    <div class="slide-section">
+        <h2>Шаг 4: Разделение данных на обучающий и тестовый наборы</h2>
+        <pre><code>from sklearn.model_selection import train_test_split
+
+X_train, X_test, Y_train, Y_test = train_test_split(
+    X, Y,
+    test_size=0.2,        # 20% данных — тестовая выборка
+    random_state=42,      # фиксация случайности
+    shuffle=True          # перемешать перед разделением
+)</code></pre>
+    </div>
+
+    <!-- Слайд 6 -->
+    <div class="slide-section">
+        <h2>Шаг 5: Обучение алгоритма линейной регрессии</h2>
+        <pre><code>from sklearn.linear_model import LinearRegression
+
+regressor = LinearRegression()
+regressor.fit(X_train, Y_train)
+
+print("Коэффициент (наклон):", regressor.coef_)
+print("Свободный член:", regressor.intercept_)</code></pre>
+        <div class="formula">
+            Баллы = 2.85 + 9.48 × Часы
+        </div>
+        <div class="note">
+            <strong>Интерпретация:</strong>  
+            - Студент, который не готовился вообще, в среднем получает ~2.85 балла.  
+            - Каждый дополнительный час подготовки добавляет ~9.48 балла.
+        </div>
+    </div>
+
+    <footer>
+        <p>Проект создан на основе презентации «Линейная регрессия» • Код доступен на GitHub</p>
+        <p>© 2025 | Машинное обучение для начинающих</p>
+    </footer>
+
+</body>
+</html>
 </html>
