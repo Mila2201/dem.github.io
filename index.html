@@ -240,19 +240,54 @@
     </style>
 </head>
 <body>
- <h2> 16 марта 2026 </h2>
+ <h2> 16 марта 2026, </h2>
   <p> Студент занимался 5 часов. Прогноз баллов: 50.23 </p>
-  <div id="accuracy-display">Загрузка данных...</div>
+ <h2> 21 марта, 2026 </h2>
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модель Кредитования</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 { color: #333; font-size: 24px; }
+        .metric {
+            font-size: 60px;
+            font-weight: bold;
+            color: #2ecc71; /* Зеленый цвет */
+            margin: 20px 0;
+        }
+        .label { color: #666; font-size: 18px; }
+    </style>
+</head>
+<body>
 
-<script>
-  fetch('model_metrics.json')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('accuracy-display').innerHTML = 
-        `Точность модели страхования: <b>${data.accuracy_percent}</b>`;
-    })
-    .catch(err => console.error('Ошибка загрузки:', err));
-</script>
+    <div class="card">
+        <h1>Модель выдачи кредита</h1>
+        <div class="label">Показатель точности (Accuracy)</div>
+        <div class="metric">0.69</div>
+        <p>Данные актуальны на текущую версию модели.</p>
+    </div>
+
+</body>
+</html>
 </body>
 </html>
 </html>
